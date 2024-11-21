@@ -9,7 +9,7 @@ export async function inserirListaNegra(pessoa) {
                             values (?, ?, ?, ?, ?, ?)
     `;
     
-    let resposta = await con.query(comando, [pessoa.nm_nome, pessoa.nrm_pessoa, pessoa.email, pessoa.endereco, pessoa.nm_produtos])
+    let resposta = await con.query(comando, [pessoa.nome, pessoa.pessoa, pessoa.email, pessoa.endereco, pessoa.produtos])
     let info = resposta[0];
     
     return info.insertId;

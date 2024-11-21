@@ -5,7 +5,7 @@ import { Router } from "express";
 const endpoints = Router();
 
 
-endpoints.get('/listaNegra/', async (req, resp) => {
+endpoints.get('/Consultar/', async (req, resp) => {
     try {
         let registros = await db.consultarListaNegra();
         resp.send(registros);
@@ -18,7 +18,7 @@ endpoints.get('/listaNegra/', async (req, resp) => {
 })
 
 
-endpoints.post('/listaNegra/', async (req, resp) => {
+endpoints.post('/Inserir/', async (req, resp) => {
     try {
         let pessoa = req.body;
 
@@ -38,7 +38,7 @@ endpoints.post('/listaNegra/', async (req, resp) => {
 
 
 
-endpoints.delete('/listaNegra/:id', async (req, resp) => {
+endpoints.delete('/Remover/:id', async (req, resp) => {
     try {
         let id = req.params.id;
 
