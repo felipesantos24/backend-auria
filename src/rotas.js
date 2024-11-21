@@ -1,8 +1,9 @@
-import joiasController from './controller/joiasController.js'
+import pedidoController from './controller/pedidoController.js'
 import loginController from './controller/loginController.js'
+
 
 export default function adicionarRotas(servidor) {
 
-    servidor.use(joiasController)
+    servidor.use(pedidoController)
     servidor.use(loginController)
 }

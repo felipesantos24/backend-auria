@@ -1,44 +1,41 @@
-
-
 import con from "./connection.js";
 
 
-export async function inserirListaNegra(pessoa) {
+export async function inserirJoias (Joias) {
     const comando = `
-        insert into tb_lista_negra (nm_pessoa, nrm_pessoa, email_pessoa, endereco, nm_produtos) 
-                            values (?, ?, ?, ?, ?, ?)
-    `;
-    
-    let resposta = await con.query(comando, [pessoa.nome, pessoa.pessoa, pessoa.email, pessoa.endereco, pessoa.produtos])
-    let info = resposta[0];
-    
-    return info.insertId;
+    insert into joias (nm_pessoa, nrm_telefone, email_pessoa, endereco, nm_produtos)
+                        values (?, ?, ?, ?, ?) `
+    ; 
+
+    let resposta = await con.query (comando, [Joias.nm_pessoa, Joias.nrm_telefone, Joias.email_pessoa, Joias.endereco, Joias.nm_produtos])
+    let info = resposta [0]; 
+
+    return info.inserId; 
 }
 
 
-export async function consultarListaNegra() {
+export async function ConsultarJoias(){
     const comando = `
-        select id_pedido   id,
-               nm_pessoa        nome,
-               nrm_pessoa       numero,
-               email_pessoa     email,
-               endereco         endereco,
-               nm_produtos         produto
-           
-          from tb_lista_negra
-    `;
+    select  id_peido                id,
+            nm_pessoa               nome,
+            nrm_telefone            telefone,
+            email_pessoa            email,
+            endereco                endereco,
+            nm_produtos             produtos
+        from joias `
+    ;
 
-    let resposta = await con.query(comando);
-    let registros = resposta[0];
+    let resposta = await con.query (comando);
+    let registros = resposta [0];
 
-    return registros;
+    return registros
+
 }
 
-export async function removerListaNegra(id) {
+export async function RemoverJoias(id) {
     const comando = `
-        delete from tb_lista_negra 
-         where id_pedido = ?
-    `
+        delete from joias 
+         where id_peido = ? `
 
     let resposta = await con.query(comando, [id]);
     let info = resposta[0];
