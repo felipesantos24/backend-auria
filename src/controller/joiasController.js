@@ -77,4 +77,10 @@ endpoints.delete ('/joias/:id', async (req, resp) => {
 
 
 
+
+
+
+
+
+
 export default endpoints;
