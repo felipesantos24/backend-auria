@@ -1,4 +1,4 @@
-import * as db from '../repository/joiasRepository.js/'
+import * as db from '../repository/joiasRepository.js'
 
 import { Router } from 'express';
 const endpoints = Router (); 

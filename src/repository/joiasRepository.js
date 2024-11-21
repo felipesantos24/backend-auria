@@ -3,7 +3,8 @@ import con from './connection.js';
 export async function inserirInf (informacoes) {
     const comando = `
     insert into Agendas (nome, descricao, tamanho, valor, joia)
-                        values (?, ?, ?, ?, ?); ` 
+                        values (?, ?, ?, ?, ?)`
+                        ; 
 
     let resposta = await con.query (comando, [informacoes.nome, informacoes.descricao, informacoes.tamanho, informacoes.valor, informacoes.joia])
     let info = resposta [0]; 
@@ -19,7 +20,7 @@ export async function consultarJoia(){
         tamanho                             tamanho,
         valor                               preco,
         joia                                descricao
-        from Agendas; `
+        from Agendas`;
 
     let resposta = await con.query (comando);
     let registros = resposta [0];
@@ -30,13 +31,14 @@ export async function consultarJoia(){
 
 export async function alterarInf(id, informacoes){
     const comando = `
+
     update joia set
             nome = ?,
             descricao = ?, 
             tamanho = ?, 
             valor = ?, 
             joia = ?
-        where ID = ?; `
+        where ID = ?`; 
     
 
     let resposta = await con.query ((comando), [informacoes.nome, informacoes.descricao, informacoes.tamanho, informacoes.valor, informacoes.joia, id])
@@ -49,7 +51,7 @@ export async function alterarInf(id, informacoes){
 export async function removeragendas (id){
     const comando = `
     delete from joia
-    where ID = ? `
+    where ID = ? `;
 
 
 
