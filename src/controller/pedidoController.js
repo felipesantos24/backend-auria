@@ -33,24 +33,4 @@ endpoints.post ('/Inserir/', async (req, resp) => {
     }
 })
 
-endpoints.delete ('Remover/:id', async (req, resp) => {
-    try{
-        let id= req.params.id;
-
-        let linhasAfetadas = await db.removerJoias (id); 
-        if(linhasAfetadas >= 1){
-            resp.send (); 
-        }
-        else {
-           resp.status (404).send ({erro: 'Nenhum registro encontrado'})
-        }
-    }
-    catch (err) {
-        resp.status (400).send ({
-            erro: err.message
-        })
-    }
-}) 
-
-
 export default endpoints;
